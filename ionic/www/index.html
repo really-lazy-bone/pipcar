@@ -5,29 +5,38 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="lib/leaflet/leaflet.css" rel="stylesheet">
+    <link rel="stylesheet" href="lib/leaflet-awesome-markers/leaflet.awesome-markers.css">
+    <link rel="stylesheet" href="lib/leaflet-routing-machine-2.5.0/leaflet-routing-machine.css">
 
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <!-- compiled css output -->
     <link href="css/ionic.app.css" rel="stylesheet">
-    -->
+
+    <!-- Leaflet Map -->
+    <script src="lib/leaflet/leaflet.js"></script>
+    <script src="lib/leaflet-awesome-markers/leaflet.awesome-markers.js"></script>
+    <script src="lib/leaflet-routing-machine-2.5.0/leaflet-routing-machine.js"></script>
+
+    <!-- Socket.io client -->
+    <script src="lib/socket.io-client/socket.io.js"></script>
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
   </head>
-  <body ng-app="starter">
-
+  <body ng-app="pipcar" ng-controller="HomeCtrl as home">
     <ion-pane>
       <ion-header-bar class="bar-stable">
-        <h1 class="title">Ionic Blank Starter</h1>
+        <h1 class="title">PipCar</h1>
       </ion-header-bar>
       <ion-content>
+        <div id="map" data-tab-disabled="true"></div>
       </ion-content>
     </ion-pane>
   </body>
