@@ -69,3 +69,15 @@ app.get('/mojio/callback', function(req, res) {
     console.log('Getting mojio http post callback');
     console.log(req.body);
 });
+
+app.use(function (req, res, next) {
+    console.log(
+        'HTTP request %s to url %s',
+        req.method,
+        req.originalUrl,
+        {
+            headers: req.headers
+        }
+    );
+    next();
+});
