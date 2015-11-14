@@ -60,5 +60,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post('/message', function(req, res) {
     console.log(req.body);
 
+    res.send(200);
+
     io.emit('message', {message: 'w, ' + req.body.message});
+});
+
+app.get('/mojio/callback', function(req, res) {
+    res.render('')
 });
