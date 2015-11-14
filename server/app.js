@@ -66,5 +66,6 @@ app.post('/message', function(req, res) {
 });
 
 app.get('/mojio/callback', function(req, res) {
-    res.render('')
+    console.log('Getting mojio http post callback');
+    console.log(req.body);
 });
