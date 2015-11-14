@@ -52,6 +52,29 @@ mongoose.connection.on('error', function(err) {
 	);
 });
 
+var Mojio, mojio, config;
+
+config = {
+    application: process.env.MOJIO_APLICATION_KEY,
+    secret: process.env.MOJIO_SECRET_KEY,
+    hostname: 'api.moj.io',
+    version: 'v1',
+    port: '443',
+    scheme: 'https'
+};
+
+Mojio = require('./lib/MojioClient.js');
+
+mojio = new Mojio(config);
+
+mojio.login(process.env.MOJIO_USERNAME, process.env.MOJIO_PASSWORD, function(error, result) {
+    if (error) {
+        return console.log("error: " + error);
+    } else {
+        return console.log("success:" + result);
+    }
+});
+
 // parse json as body
 app.use(bodyParser.json());
 // for parsing application/x-www-form-urlencoded
