@@ -60,7 +60,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post('/message', function(req, res) {
     console.log(req.body);
 
-    res.send(200);
+    res.sendStatus(200);
 
     io.emit('message', {message: 'w, ' + req.body.message});
 });
