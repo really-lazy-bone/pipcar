@@ -1,0 +1,64 @@
+'use strict';
+
+/*
+ * Express Dependencies
+ */
+var express = require('express');
+var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+
+var app = express();
+var port = 3000;
+
+var server = require('http').Server(app);
+
+var io = require('socket.io')(server);
+
+io.on('connection', function(socket) {
+    console.log('A user connected');
+    setTimeout(function() {
+        socket.emit('message', {message: 'w, Hello world'});
+    }, 1000);
+});
+
+server.listen(port);
+console.log('Express started on port ' + port);
+
+// set up connection to mongoDB
+mongoose.connect(
+	'mongodb://localhost/gophr',
+	{
+		server: {
+			socketOptions: {
+				connectTimeoeutMS: 10000,
+				keepAlive: 1
+			}
+		}
+	}
+);
+
+mongoose.connection.once('open', function() {
+	console.info(
+		'Connected to MongoDB'
+	);
+});
+
+mongoose.connection.on('error', function(err) {
+	console.error(
+		'Error happened in connection to MongoDB',
+		{
+			error: err
+		}
+	);
+});
+
+// parse json as body
+app.use(bodyParser.json());
+// for parsing application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.post('/message', function(req, res) {
+    console.log(req.body);
+
+    io.emit('message', {message: 'w, ' + req.body.message});
+});
