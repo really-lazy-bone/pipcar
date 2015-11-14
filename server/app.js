@@ -65,7 +65,7 @@ app.post('/message', function(req, res) {
     io.emit('message', {message: 'w, ' + req.body.message});
 });
 
-app.get('/mojio/callback', function(req, res) {
+app.post('/mojio/callback', function(req, res) {
     console.log('Getting mojio http post callback');
     console.log(req.body);
 });
