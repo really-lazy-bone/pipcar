@@ -63,6 +63,7 @@ config = {
     scheme: 'https'
 };
 
+var $ = require('jquery');
 Mojio = require('./lib/MojioClient.js');
 
 mojio = new Mojio(config);
