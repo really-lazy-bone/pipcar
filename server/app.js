@@ -36,7 +36,7 @@ var io = require('socket.io')(server);
 io.on('connection', function(socket) {
     console.log('A user connected');
     setTimeout(function() {
-        socket.emit('message', {message: 'w, Hello world'});
+        socket.emit('message', {message: 'Connected, Hello world'});
     }, 1000);
 });
 
@@ -81,7 +81,7 @@ app.post('/message', function(req, res) {
 
     res.sendStatus(200);
 
-    io.emit('message', {message: 'Hi, ' + req.body.message});
+    io.emit('message', {message: 'Incoming Message: ' + req.body.message});
 });
 
 app.post('/mojio/callback', function(req, res) {
@@ -89,7 +89,7 @@ app.post('/mojio/callback', function(req, res) {
     console.log(req.body);
 
     if (req.body.EventType !== 'TripStatus') {
-        io.emit('message', {message: 'Hi, ' + friendlyMessages[req.body.EventType]});
+        io.emit('message', {message: 'Incoming Message: ' + friendlyMessages[req.body.EventType]});
     }
 });
 
