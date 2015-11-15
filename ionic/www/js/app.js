@@ -81,19 +81,28 @@ angular.module('pipcar', ['ionic', 'ngCordova', 'ngMaterial'])
   }
 
   function sendText () {
-    function recognizeSpeech() {
-      var maxMatches = 5;
-      var promptString = "Speak now"; // optional
-      var language = "en-US";                     // optional
-      window.plugins.speechrecognizer.startRecognize(function(result){
-        alert(result);
-        // Send text to twilio
-      }, function(errorMessage){
-        alert(errorMessage);
-      }, maxMatches, promptString, language);
-    }
-
-    document.addEventListener('deviceready', recognizeSpeech);
+    // function recognizeSpeech() {
+    //   var maxMatches = 5;
+    //   var promptString = "Speak now"; // optional
+    //   var language = "en-US";                     // optional
+    //   window.plugins.speechrecognizer.startRecognize(function(result){
+    //     alert(result);
+    //     // Send text to twilio
+    //   }, function(errorMessage){
+    //     alert(errorMessage);
+    //   }, maxMatches, promptString, language);
+    // }
+    //
+    // document.addEventListener('deviceready', recognizeSpeech);
+    $ionicLoading.show({
+      template: '<ion-spinner></ion-spinner> <br>Sending I\'m okay text.'
+    });
+    $http.post(SERVER_URL + '/twilio/send', {
+      lat: vm.lag,
+      long: vm.long
+    }).then(function() {
+      $ionicLoading.hide();
+    });
   }
 
   initMap();
@@ -169,9 +178,9 @@ angular.module('pipcar', ['ionic', 'ngCordova', 'ngMaterial'])
 
   document.addEventListener('deviceready', function() {
     socket.on('status', function(data) {
-      var lat  = data.Location.Lat;
-      var long = data.Location.Lng;
-      var newLatLng = new L.LatLng(lat, long);
+      vm.lat  = data.Location.Lat;
+      vm.long = data.Location.Lng;
+      var newLatLng = new L.LatLng(vm.lat, vm.long);
       vm.marker.setLatLng(newLatLng);
       vm.map.panTo(newLatLng);
 
