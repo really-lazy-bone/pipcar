@@ -11,7 +11,7 @@ var DEBUG = true;
 
 var friendlyMessages = {
     IgnitionOn: "Engine on. We are ready to go on adventure!",
-    IgnitionOff: "Shutting downnnn.",
+    IgnitionOff: "Shutting down.",
     LowBattery: "Warning warning you are low on battery level",
     FenceEntered: "Entering Officer Area. Please be prepared and follow the instruction.",
     FenceExited: "Exiting Officer Area. Now you are free again!",
@@ -20,7 +20,7 @@ var friendlyMessages = {
     TowStart: "Help! I'm being kidnapped.",
     TowStop: "I guess I'll wait here for my master. Waiting waiting ...",
     HardAcceleration: "Woah, that is a hard acceleration. That is very bad for your engine. Don't do it again.",
-    HardBrake: "Ah! Very harsh brake. Are you okay? Did you hit anyone? See, I told you to slow down before.",
+    HardBrake: "Ah! Very harsh brake. Are you okay? Are you okay? Did you hit anyone?",
     HardRight: "Warning hard right",
     HardLeft: "Warning hard left",
     Speed: "Speeding detected. Make sure there is no police around! Wait ... maybe I can report my master for some reward. Nah, just kidding.",

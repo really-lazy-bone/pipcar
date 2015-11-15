@@ -9089,6 +9089,44 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-.scroll,
+.scroll {
+  height: 100%; }
+
 #map {
   height: 100%; }
+  #map .open {
+    height: 70%; }
+
+md-fab-toolbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%; }
+  md-fab-toolbar md-fab-trigger {
+    right: 40%; }
+    md-fab-toolbar md-fab-trigger .md-fab-toolbar-background {
+      left: 0; }
+  md-fab-toolbar md-icon[md-font-icon].ion-alert-circled {
+    color: #F44336 !important; }
+
+md-icon {
+  font-size: 1.5em; }
+
+.fill-space {
+  flex: 1; }
+
+.meta-data {
+  height: 20%;
+  width: 14em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: #387ef5;
+  pointer-events: none; }
+  .meta-data .item {
+    background-color: transparent;
+    border-color: transparent; }
+
+svg.icon {
+  height: 32px;
+  width: 32px;
+  fill: #387ef5; }
