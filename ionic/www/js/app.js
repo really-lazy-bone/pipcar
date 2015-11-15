@@ -136,10 +136,6 @@ angular.module('pipcar', ['ionic', 'ngCordova', 'ngMaterial'])
       var media = $cordovaMedia.newMedia('/android_asset/www/sound/alert.mp3');
 
       media.play();
-      setTimeout(function() {
-        var media = $cordovaMedia.newMedia('/android_asset/www/sound/alert.mp3');
-        media.play();
-      }, 2000);
 
       getAlertInfo();
 

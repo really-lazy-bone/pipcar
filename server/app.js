@@ -1891,6 +1891,21 @@ app.post('/mojio/simulate', function(req, res) {
     }
 });
 
+app.post('/twilio/send', function(req, res) {
+    var client = twilio(process.env.TWILIO_ACCOUNT_ID, process.env.TWILIO_ACCOUNT_SECRET);
+
+    var recipients = [];
+
+    recipients.forEach(function() {
+        client.sendMessage({
+            from: '+16262380913',
+            to: recipient,
+            body: 'There has been an accident in my area but I am ok. I am at http://maps.google.com/maps?q=' + req.body.lat + ',' + req.body.long,
+        }, function(err, res) {
+        });
+    });
+})
+
 app.use(function (req, res, next) {
     console.log(
         'HTTP request %s to url %s',

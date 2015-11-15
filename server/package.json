@@ -13,6 +13,7 @@
     "mojio-js": "^3.5.2",
     "mongoose": "^4.2.5",
     "socket.io": "latest",
+    "twilio": "^2.5.2",
     "watson-developer-cloud": "~0.9.9"
   },
   "engines": {
