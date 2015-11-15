@@ -1931,7 +1931,7 @@ app.post('/mojio/simulate', function(req, res) {
         console.log('Broad casting move ' + index);
         if (index < simulateJson.length) {
             io.emit('status', simulateJson[index]);
-            if (friendlyMessages[simulateJson.EventType]) {
+            if (friendlyMessages[simulateJson[index].EventType]) {
                 io.emit('message', {message: 'Incoming Message: ' + friendlyMessages[simulateJson[index].EventType]});
             }
             index ++;

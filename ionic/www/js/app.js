@@ -136,7 +136,10 @@ angular.module('pipcar', ['ionic', 'ngCordova', 'ngMaterial'])
       var media = $cordovaMedia.newMedia('/android_asset/www/sound/alert.mp3');
 
       media.play();
-      media.play();
+      setTimeout(function() {
+        var media = $cordovaMedia.newMedia('/android_asset/www/sound/alert.mp3');
+        media.play();
+      }, 2000);
 
       vm.emergency = true;
       var circle = L.circle([34.0508078,-118.2554419], 10000, {
