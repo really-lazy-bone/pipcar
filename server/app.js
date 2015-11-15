@@ -1919,18 +1919,23 @@ app.post('/mojio/callback', function(req, res) {
 });
 
 app.post('/mojio/simulate', function(req, res) {
+    console.log('Simulating moves');
+
+    res.sendStatus(200);
+
     var index = 0;
 
-    setTimeout(broadCastNextMove, 1000);
+    broadCastNextMove();
 
     function broadCastNextMove () {
+        console.log('Broad casting move ' + index);
         if (index < broadCastNextMove.length) {
             io.emit('status', simulateJson[index]);
             if (simulateJson[index].EventType !== 'TripStatus' && simulateJson[index].EventType !== 'MovementStart' && simulateJson[index].EventType !== 'MovementStop') {
                 io.emit('message', {message: 'Incoming Message: ' + friendlyMessages[simulateJson[index].EventType]});
             }
             index ++;
-            broadCastNextMove();
+            setTimeout(broadCastNextMove, 1000);
         }
     }
 });
