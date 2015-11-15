@@ -7,6 +7,16 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
+var friendlyMessages = {
+    'IgnitionOn': 'Hello there.',
+    'IgnitionOff': 'Good bye',
+    'HardBrake': 'Woah, what happened!? Are you okay?',
+    'Accident': 'NO! Accident! Are you okay?',
+    'HardAcceleration': 'Woah woah woah, slow down.',
+    'Speed:': 'Woah woah woah, slow down!',
+    'Park': 'You finally found a parking'
+};
+
 var app = express();
 var port = 3000;
 
@@ -70,7 +80,7 @@ app.post('/mojio/callback', function(req, res) {
     console.log(req.body);
 
     if (req.body.EventType !== 'TripStatus') {
-        io.emit('message', {message: 'w, ' + req.body.EventType});
+        io.emit('message', {message: 'w, ' + friendlyMessages[req.body.EventType]});
     }
 });
 
