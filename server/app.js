@@ -1913,7 +1913,7 @@ app.post('/mojio/callback', function(req, res) {
     console.log(req.body);
 
     io.emit('status', req.body);
-    if (req.body.EventType !== 'TripStatus' && req.body.EventType !== 'MovementStart' && req.body.EventType !== 'MovementStop') {
+    if (req.body.EventType !== 'TripStatus' && req.body.EventType !== 'MovementStart' && req.body.EventType !== 'MovementStop' && simulateJson[index].EventType !== 'HeadingChange') {
         io.emit('message', {message: 'Incoming Message: ' + friendlyMessages[req.body.EventType]});
     }
 });
@@ -1931,7 +1931,7 @@ app.post('/mojio/simulate', function(req, res) {
         console.log('Broad casting move ' + index);
         if (index < simulateJson.length) {
             io.emit('status', simulateJson[index]);
-            if (simulateJson[index].EventType !== 'TripStatus' && simulateJson[index].EventType !== 'MovementStart' && simulateJson[index].EventType !== 'MovementStop') {
+            if (simulateJson[index].EventType !== 'TripStatus' && simulateJson[index].EventType !== 'MovementStart' && simulateJson[index].EventType !== 'MovementStop' && simulateJson[index].EventType !== 'HeadingChange') {
                 io.emit('message', {message: 'Incoming Message: ' + friendlyMessages[simulateJson[index].EventType]});
             }
             index ++;
