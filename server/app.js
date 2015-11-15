@@ -1929,7 +1929,7 @@ app.post('/mojio/simulate', function(req, res) {
 
     function broadCastNextMove () {
         console.log('Broad casting move ' + index);
-        if (index < broadCastNextMove.length) {
+        if (index < simulateJson.length) {
             io.emit('status', simulateJson[index]);
             if (simulateJson[index].EventType !== 'TripStatus' && simulateJson[index].EventType !== 'MovementStart' && simulateJson[index].EventType !== 'MovementStop') {
                 io.emit('message', {message: 'Incoming Message: ' + friendlyMessages[simulateJson[index].EventType]});
