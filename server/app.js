@@ -90,6 +90,8 @@ app.post('/mojio/callback', function(req, res) {
 
     if (req.body.EventType !== 'TripStatus') {
         io.emit('message', {message: 'Incoming Message: ' + friendlyMessages[req.body.EventType]});
+    } else {
+        io.emit('status', req.body);
     }
 });
 
