@@ -8,13 +8,22 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 var friendlyMessages = {
-    'IgnitionOn': 'Hello there.',
-    'IgnitionOff': 'Good bye',
-    'HardBrake': 'Woah, what happened!? Are you okay?',
-    'Accident': 'NO! Accident! Are you okay?',
-    'HardAcceleration': 'Woah woah woah, slow down.',
-    'Speed:': 'Woah woah woah, slow down!',
-    'Park': 'You finally found a parking'
+    IgnitionOn: "Engine On",
+    IgnitionOff: "Engine Off",
+    LowBattery: "warning low battery level",
+    FenceEntered: "Entering Officer Area",
+    FenceExited: "Exiting Officer Area",
+    MILWarning: "Warning car malfunction",
+    Accident: "Accident Occured Are you OK?",
+    TowStart: "Warning car being towed",
+    TowStop: "End car tow",
+    HardAcceleration: "Warning drastic speed up",
+    HardBrake: "warning hard brake",
+    HardRight: "warning hard right",
+    HardLeft: "warning hard left",
+    Speed: "warning excessive speed",
+    Park: "car parked",
+    LowFuel: "warning low fuel"
 };
 
 var app = express();
