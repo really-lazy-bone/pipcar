@@ -88,10 +88,9 @@ app.post('/mojio/callback', function(req, res) {
     console.log('Getting mojio http post callback');
     console.log(req.body);
 
+    io.emit('status', req.body);
     if (req.body.EventType !== 'TripStatus') {
         io.emit('message', {message: 'Incoming Message: ' + friendlyMessages[req.body.EventType]});
-    } else {
-        io.emit('status', req.body);
     }
 });
 

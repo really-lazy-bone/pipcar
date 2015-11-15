@@ -34,46 +34,38 @@ angular.module('pipcar', ['ionic', 'ngCordova'])
   initMap();
 
   function initMap () {
-    var map = L.map('map').setView([34.0488827, -118.2585095], 14);
+    vm.map = L.map('map').setView([34.0488827, -118.2585095], 14);
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
       attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-      minZoom: 13,
-      maxZoom: 18,
       id: 'rcliao.cigfua5ev854ztdm6xuj8jj1g',
       accessToken: 'pk.eyJ1IjoicmNsaWFvIiwiYSI6ImNpZ2Z1YTZzdjd1ZXl0bW01eTl1N3JrNngifQ.wLdfXWUF0P2H2kiQxrjGXA'
-    }).addTo(map);
+    }).addTo(vm.map);
+
+    var carIcon = L.AwesomeMarkers.icon({
+      prefix: 'ion',
+      icon: 'ion-model-s',
+      markerColor: 'green'
+    });
+
+    var lat  = 34.0508078;
+    var long = -118.2554419;
+    vm.marker = L.marker([lat, long], {icon: carIcon}).addTo(vm.map);
+
+    var circle = L.circle([34.0508078,-118.2554419], 50, {
+      color: 'red',
+      fillColor: '#f03',
+      fillOpacity: 0.5
+    }).addTo(vm.map);
   }
 
   document.addEventListener('deviceready', function() {
-    var posOptions = {timeout: 10000, enableHighAccuracy: false};
-    $cordovaGeolocation
-      .getCurrentPosition(posOptions)
-      .then(function (position) {
-        var lat  = position.coords.latitude
-        var long = position.coords.longitude
-        vm.marker = L.marker([lat, long]).addTo(map);
-      }, function(err) {
-        // error
-      });
-
-    var watchOptions = {
-      timeout : 3000,
-      enableHighAccuracy: false // may cause errors if true
-    };
-
-    var watch = $cordovaGeolocation.watchPosition(watchOptions);
-    watch.then(
-      null,
-      function(err) {
-        // error
-      },
-      function(position) {
-        var lat  = position.coords.latitude
-        var long = position.coords.longitude
-        var newLatLng = new L.LatLng(lat, long);
-        vm.marker.setLatLng(newLatLng);
+    socket.on('status', function(data) {
+      var lat  = data.Location.Lat;
+      var long = data.Location.Lng;
+      var newLatLng = new L.LatLng(lat, long);
+      vm.marker.setLatLng(newLatLng);
+      vm.map.panTo(newLatLng);
     });
-
     socket.on('message', function(data) {
       vm.messageQueue.push(data.message);
       if (!vm.speaking) {
