@@ -19,8 +19,8 @@ var friendlyMessages = {
     Accident: "I detected accident happening. Are you OK? Do I need to call 911?",
     TowStart: "Help! I'm being kidnapped.",
     TowStop: "I guess I'll wait here for my master. Waiting waiting ...",
-    HardAcceleration: "Woah, that is a heavy acceleration. Hint hint: that is very bad for your engine.",
-    HardBrake: "No! Very harsh brake. Are you okay? Did you hit anyone?",
+    HardAcceleration: "Woah, that is a heavy acceleration. Hint hint: this is very bad for your engine.",
+    HardBrake: "Very harsh brake. Are you okay? Did you hit anyone?",
     HardRight: "Warning hard right",
     HardLeft: "Warning hard left",
     Speed: "Speeding detected. Make sure there is no police around! Wait ... maybe I can report my master for some reward. Nah, just kidding.",
@@ -1883,7 +1883,7 @@ app.post('/mojio/simulate', function(req, res) {
                 io.emit('message', {message: 'Incoming Message: ' + friendlyMessages[simulateJson[index].EventType]});
             }
             index ++;
-            setTimeout(broadCastNextMove, 500);
+            setTimeout(broadCastNextMove, 250);
         } else {
             console.log('Simulation ends. Starting emergency mode. WARNING WARNING');
             io.emit('emergency', true);
