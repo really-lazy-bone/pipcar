@@ -497,7 +497,7 @@ var simulateJson = [
         "$$hashKey": "object:800"
     },
     {
-        "EventType": "Accident",
+        "EventType": "HardAcceleration",
         "Location": {
             "Lat": 34.0553,
             "Lng": -118.25132
@@ -1303,7 +1303,7 @@ var simulateJson = [
         "$$hashKey": "object:831"
     },
     {
-        "EventType": "Accident",
+        "EventType": "HardBrake",
         "Location": {
             "Lat": 34.05292,
             "Lng": -118.25484000000002
@@ -1935,7 +1935,7 @@ app.post('/mojio/simulate', function(req, res) {
                 io.emit('message', {message: 'Incoming Message: ' + friendlyMessages[simulateJson[index].EventType]});
             }
             index ++;
-            setTimeout(broadCastNextMove, 1000);
+            setTimeout(broadCastNextMove, 500);
         } else {
             console.log('Simulation ends. Starting emergency mode. WARNING WARNING');
             io.emit('emergency', true);

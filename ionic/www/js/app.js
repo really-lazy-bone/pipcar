@@ -141,6 +141,8 @@ angular.module('pipcar', ['ionic', 'ngCordova', 'ngMaterial'])
         media.play();
       }, 2000);
 
+      getAlertInfo();
+
       vm.emergency = true;
       var circle = L.circle([34.0508078,-118.2554419], 10000, {
         color: 'orange',
