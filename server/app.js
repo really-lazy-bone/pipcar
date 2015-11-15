@@ -81,7 +81,7 @@ app.post('/message', function(req, res) {
 
     res.sendStatus(200);
 
-    io.emit('message', {message: 'ugh, ' + req.body.message});
+    io.emit('message', {message: 'Hi, ' + req.body.message});
 });
 
 app.post('/mojio/callback', function(req, res) {
@@ -89,7 +89,7 @@ app.post('/mojio/callback', function(req, res) {
     console.log(req.body);
 
     if (req.body.EventType !== 'TripStatus') {
-        io.emit('message', {message: 'ugh, ' + friendlyMessages[req.body.EventType]});
+        io.emit('message', {message: 'Hi, ' + friendlyMessages[req.body.EventType]});
     }
 });
 
