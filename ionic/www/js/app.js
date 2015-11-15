@@ -89,13 +89,9 @@ angular.module('pipcar', ['ionic', 'ngCordova'])
       TTS.speak(
         message,
         function() {
-          if (vm.messageQueue.length) {
-            speakFirstInQueue();
-          }
+          speakFirstInQueue();
         }, function(reason) {
-          if (vm.messageQueue.length) {
-            speakFirstInQueue();
-          }
+          speakFirstInQueue();
         });
     } else {
       vm.speaking = false;
