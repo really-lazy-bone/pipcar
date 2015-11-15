@@ -31,7 +31,7 @@ angular.module('pipcar', ['ionic', 'ngCordova', 'ngMaterial'])
     .accentPalette('blue');
 })
 
-.controller('HomeCtrl', function($scope, $http, $ionicPopup, $ionicLoading) {
+.controller('HomeCtrl', function($scope, $http, $ionicPopup, $ionicLoading, $cordovaMedia) {
   var vm = this;
 
   vm.messageQueue = [];
@@ -39,6 +39,8 @@ angular.module('pipcar', ['ionic', 'ngCordova', 'ngMaterial'])
   vm.getAlertInfo = getAlertInfo;
   vm.requestForHelp = requestForHelp;
   vm.sendText = sendText;
+
+  socket.on('emergency', activateEmergency);
 
   var carIcon = L.AwesomeMarkers.icon({
     prefix: 'ion',
@@ -62,8 +64,6 @@ angular.module('pipcar', ['ionic', 'ngCordova', 'ngMaterial'])
     var alertPopup = $ionicPopup.alert({
       title: 'Earthquake Alert',
       template: '<b>Warning!</b> <br> you are in the affected area of earthquake. <br> Please follow by the instructions from officers to leave area safely.'
-    });
-    alertPopup.then(function(res) {
     });
   }
 
@@ -109,8 +109,6 @@ angular.module('pipcar', ['ionic', 'ngCordova', 'ngMaterial'])
     var long = -118.2554419;
     vm.marker = L.marker([lat, long], {icon: carIcon}).addTo(vm.map);
 
-    activateEmergency();
-
     $http.get('http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson').then(function(response) {
       var sfGeoJson = response.data;
       L.geoJson(sfGeoJson, {
@@ -133,16 +131,25 @@ angular.module('pipcar', ['ionic', 'ngCordova', 'ngMaterial'])
     });
   }
 
-  function activateEmergency () {
-    vm.emergency = true;
-    var circle = L.circle([34.0508078,-118.2554419], 10000, {
-      color: 'orange',
-      fillColor: '#ffc900',
-      fillOpacity: 0.2
-    }).addTo(vm.map)
-      .bindPopup('10km NW of CA, Los Angeles');
+  function activateEmergency (active) {
+    if (active) {
+      var media = $cordovaMedia.newMedia('/android_asset/www/sound/alert.mp3');
 
-    officerPositions.forEach(addOfficer);
+      media.play();
+      media.play();
+
+      vm.emergency = true;
+      var circle = L.circle([34.0508078,-118.2554419], 10000, {
+        color: 'orange',
+        fillColor: '#ffc900',
+        fillOpacity: 0.2
+      }).addTo(vm.map)
+        .bindPopup('10km NW of CA, Los Angeles');
+
+      officerPositions.forEach(addOfficer);
+    } else {
+      console.log('meh');
+    }
   }
 
   function addOfficer (LatLng) {
