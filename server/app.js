@@ -580,7 +580,7 @@ if (DEBUG) {
 
     for (var i = 0; i < predefinedMoves.length; i ++ ) {
         io.emit('status', predefinedMoves[i]);
-        if (req.body.EventType !== 'TripStatus') {
+        if (predefinedMoves[i].EventType !== 'TripStatus') {
             io.emit('message', {message: 'Incoming Message: ' + friendlyMessages[predefinedMoves[i].EventType]});
         }
     }
