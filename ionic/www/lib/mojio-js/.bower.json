@@ -1,0 +1,37 @@
+{
+  "name": "mojio-js",
+  "version": "3.5.2",
+  "main": "dist/MojioClient.js",
+  "ignore": [
+    ".gitignore",
+    "travis.yml",
+    "build.sh",
+    "package.json",
+    ".jshintrc",
+    "**/*.txt",
+    "**/*.json",
+    "**/*.md",
+    "bower_components",
+    "lib",
+    "/example",
+    "node_modules",
+    "src",
+    "test"
+  ],
+  "dependencies": {
+    "jquery": "2.1.1",
+    "signalr": "2.0.2"
+  },
+  "devDependencies": {},
+  "homepage": "https://github.com/mojio/mojio-js",
+  "_release": "3.5.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v3.5.2",
+    "commit": "a4c5a819734b9c915cbe36c1ea9fc9f4fb1bc37d"
+  },
+  "_source": "git://github.com/mojio/mojio-js.git",
+  "_target": "~3.5.2",
+  "_originalSource": "mojio-js",
+  "_direct": true
+}
