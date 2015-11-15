@@ -1936,6 +1936,9 @@ app.post('/mojio/simulate', function(req, res) {
             }
             index ++;
             setTimeout(broadCastNextMove, 1000);
+        } else {
+            console.log('Simulation ends. Starting emergency mode. WARNING WARNING');
+            io.emit('emergency', true);
         }
     }
 });
