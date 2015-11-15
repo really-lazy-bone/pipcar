@@ -19,8 +19,8 @@ var friendlyMessages = {
     Accident: "I detected accident happening. Are you OK? Do I need to call 911?",
     TowStart: "Help! I'm being kidnapped.",
     TowStop: "I guess I'll wait here for my master. Waiting waiting ...",
-    HardAcceleration: "Woah, that is a hard acceleration. That is very bad for your engine. Don't do it again.",
-    HardBrake: "Ah! Very harsh brake. Are you okay? Are you okay? Did you hit anyone?",
+    HardAcceleration: "Woah, that is a heavy acceleration. Hint hint: that is very bad for your engine.",
+    HardBrake: "No! Very harsh brake. Are you okay? Did you hit anyone?",
     HardRight: "Warning hard right",
     HardLeft: "Warning hard left",
     Speed: "Speeding detected. Make sure there is no police around! Wait ... maybe I can report my master for some reward. Nah, just kidding.",
@@ -28,32 +28,6 @@ var friendlyMessages = {
     LowFuel: "Hmm ... seems like your fuel level is low. Here are the nearby gas stations."
 };
 var simulateJson = [
-    {
-        "EventType": "IgnitionOn",
-        "Location": {
-            "Lat": 34.05623,
-            "Lng": -118.24961
-        },
-        "Accelerometer": {
-            "X": "",
-            "Y": "",
-            "Z": ""
-        },
-        "BatteryVoltage": "",
-        "ConnectionLost": "",
-        "Altitude": "",
-        "Acceleration": "",
-        "Deceleration": "",
-        "Distance": "",
-        "FuelEfficiency": "",
-        "FuelLevel": "",
-        "Heading": "",
-        "Odometer": 0,
-        "RPM": "",
-        "Speed": "",
-        "_viewStatus": "c",
-        "$$hashKey": "object:783"
-    },
     {
         "EventType": "MovementStart",
         "Location": {
@@ -1797,7 +1771,7 @@ var simulateJson = [
         "$$hashKey": "object:850"
     },
     {
-        "EventType": "MovementStop",
+        "EventType": "FenceEntered",
         "Location": {
             "Lat": 34.048460000000006,
             "Lng": -118.25897
@@ -1821,32 +1795,6 @@ var simulateJson = [
         "Speed": 54,
         "_viewStatus": "c",
         "$$hashKey": "object:851"
-    },
-    {
-        "EventType": "IgnitionOff",
-        "Location": {
-            "Lat": 34.048460000000006,
-            "Lng": -118.25897
-        },
-        "Accelerometer": {
-            "X": "",
-            "Y": "",
-            "Z": ""
-        },
-        "BatteryVoltage": "",
-        "ConnectionLost": "",
-        "Altitude": "",
-        "Acceleration": "",
-        "Deceleration": "",
-        "Distance": "",
-        "FuelEfficiency": "",
-        "FuelLevel": "",
-        "Heading": "",
-        "Odometer": 1.286,
-        "RPM": "",
-        "Speed": "",
-        "_viewStatus": "c",
-        "$$hashKey": "object:852"
     }
 ];
 
