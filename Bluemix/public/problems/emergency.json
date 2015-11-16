@@ -1,0 +1,56 @@
+{
+    "subject": "Cars in Affected Area",
+    "columns": [
+        {
+            "key": "fuel",
+            "full_name": "Fuel Level(percentage)",
+            "type": "numeric",
+            "is_objective": true,
+            "goal": "min"
+        },
+        {
+            "key": "battery",
+            "full_name": "Car Low Battery?(T/F)",
+            "type": "numeric",
+            "is_objective": true,
+            "goal": "max"
+        },
+        {
+            "key": "accident",
+            "full_name": "Car in Accident?(T/F)",
+            "type": "numeric",
+            "is_objective": true,
+            "goal": "max"
+        }
+  
+    ],
+    "options": [
+	    {
+	      "key": "0",
+	      "name": "Toyota Camry License 2000",
+	      "values": {
+	        "fuel": 75,
+	        "battery": 1,
+	        "accident": 0
+	        }
+	    },
+	      {
+	      "key": "1",
+	      "name": "Ford Mustang License XBA12",
+	      "values": {
+	        "fuel": 20,
+	        "battery": 0,
+	        "accident": 1
+	        }
+	    },
+	      {
+	      "key": "0",
+	      "name": "Tesla Model X License ASDSAD2q",
+	      "values": {
+	        "fuel": 9,
+	        "battery": 0,
+	        "accident": 0
+	        }
+	    }
+	  ]
+}

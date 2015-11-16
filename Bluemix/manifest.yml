@@ -1,0 +1,13 @@
+---
+declared-services:
+  tradeoff-analytics-standard-service:
+    label: tradeoff_analytics
+    plan: standard
+applications:
+- services:
+  - tradeoff-analytics-standard-service
+  name: tradeoff-analytics-nodejs-pipcar-110
+  command: node app.js
+  path: .
+  memory: 128M
+  host: tradeoff-analytics-nodejs-pipcar-110
