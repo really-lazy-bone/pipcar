@@ -1,7 +1,10 @@
 # pipcar
 It's like pip boy but for car.
 
-For AT&T Connected Car Hackathon Los Angeles 2015
+For Connected Car Expo Hackathon Los Angeles 2015 Powered by AT&T
+AT&T Developer Program
+Saturday, November 14, 2015 at 10:00 AM - Sunday, November 15, 2015 at 9:00 PM (PST)
+Los Angeles, CA
 
 Team PipCar
 - Michael Hsu
@@ -34,10 +37,15 @@ Features
 PipCar Dispatcher Command Center
 http://tradeoff-analytics-nodejs-pipcar-110.mybluemix.net/
 
-PipCar Won Best Hackathon Connected Car App Overall
+PipCar Won 1st Place Best Hackathon Connected Car App Overall
 ![PipCar-Prize-Award-Photo](https://raw.githubusercontent.com/really-lazy-bone/pipcar/master/CT_Jbw2VEAASPZ2.jpg?raw=true)
 https://mobile.twitter.com/connectedcarla/status/666472752186941440
 https://pbs.twimg.com/media/CT_Jbw2VEAASPZ2.jpg:large
 
 AutoNews 
 http://www.autonews.com/article/20151117/VIDEO/311179967/autonews-now-volvo-hyundai-suppliers-connect-in-l-a
+
+PipCar also won
+- 1st place Coding House Challenge
+- 1st place Best Use of Plantronics
+- 1st place Best Use of IBM Bluemix
