@@ -33,3 +33,11 @@ Features
 
 PipCar Dispatcher Command Center
 http://tradeoff-analytics-nodejs-pipcar-110.mybluemix.net/
+
+PipCar Won Best Hackathon Connected Car App Overall
+![PipCar-Prize-Award-Photo](https://raw.githubusercontent.com/really-lazy-bone/pipcar/master/CT_Jbw2VEAASPZ2.jpg?raw=true)
+https://mobile.twitter.com/connectedcarla/status/666472752186941440
+https://pbs.twimg.com/media/CT_Jbw2VEAASPZ2.jpg:large
+
+AutoNews 
+http://www.autonews.com/article/20151117/VIDEO/311179967/autonews-now-volvo-hyundai-suppliers-connect-in-l-a
