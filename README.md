@@ -13,7 +13,7 @@ An application platform for timely and accurate first response in emergency situ
 
 ![PipCar](https://raw.githubusercontent.com/really-lazy-bone/pipcar/master/pipcar.PNG?raw=true)
 
-platform solutions
+Platform Solutions
 - Mojio devices and API
 - Plantronics Voyager Edge UC
 - Myo Armband
